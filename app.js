@@ -1,12 +1,17 @@
 const express = require('express');
 
 const app = express();
+app.use(express.json())
 
 
-const PORT = process.env.PORT || 5000
-
-
-
-appl.listen(PORT, () => {
-    console.log(`server listening on ${PORT}`)
+app.post("/users", function(req, res){
+    if(!req.body.userPassword){
+        res.statusCode = 400
+    }
+   res.json({
+    userId: 1
+   })
 })
+
+
+module.exports = app
